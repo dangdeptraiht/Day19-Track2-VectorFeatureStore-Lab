@@ -12,7 +12,13 @@
 > `paraphrase` / `mixed`), và tại sao? Khi nào bạn **không** dùng hybrid
 > (i.e. khi nào pure BM25 hoặc pure vector là lựa chọn đúng)?
 
-_Answer here._
+- **Exact queries**: Keyword (BM25) mode thắng hoặc ngang bằng, vì nó bắt chính xác các từ khóa kỹ thuật/verbatim.
+- **Paraphrase queries**: Semantic (Vector) mode mạnh hơn do khả năng hiểu ngữ nghĩa đồng nghĩa, vượt qua rào cản khác biệt từ vựng.
+- **Mixed queries**: Hybrid mode thắng áp đảo nhờ kết hợp được cả tín hiệu từ khóa và ngữ nghĩa bằng RRF.
+
+**Khi không dùng hybrid**:
+- Dùng pure BM25 khi cần tra cứu chính xác mã ID, log error, tên riêng (cần exact match, tiết kiệm compute).
+- Dùng pure Vector khi tìm kiếm cross-lingual (ngôn ngữ chéo) hoặc thuần tuý semantic similarity nơi keyword overlap bằng 0.
 
 ---
 
